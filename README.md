@@ -22,12 +22,7 @@ $ curl -sSL https://get.docker.com | sh
 $ sudo usermod -aG docker $(whoami)
 ```
 
-* Compile the kernel module (e.g 03)
 
-```sh
-$ cd 03_log_on_udp/
-make
-```
 
 * Start a simple udp server on port 5000
 
@@ -65,10 +60,11 @@ $ tail -f /var/log/syslog
 $ while true ; do echo "xxxxxx"; sleep 1; done  | nc -u 172.17.0.2 5000
 ```
 
-* terminal, inserting and removing module
+* Compile and test module
 
 ```sh
 $ cd 03_log_on_udp/
+$ make
 $ sudo insmod chksum.ko
 $ sudo rmmod chksum
 ```
